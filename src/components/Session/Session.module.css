@@ -1,0 +1,10 @@
+.sessionLength {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.sessionLengthStrong {
+  font-size: 3rem;
+}
