@@ -20,3 +20,9 @@
 .timeLeft {
   font-size: 3rem;
 }
+
+@media screen and (max-width: 499px) {
+  .timerContainer {
+    order: -1;
+  }
+}
