@@ -2,7 +2,7 @@ import React from 'react'
 import Button from '../Button/Button'
 import styles from './Session.module.css'
 
-const Session = ({ sessionLength }) => {
+const Session = ({ sessionLength, incrementSession, decrementSession }) => {
   return (
     <aside className={styles.sessionLength}>
       <h3 id="session-label">Session Length</h3>
@@ -10,8 +10,12 @@ const Session = ({ sessionLength }) => {
         {sessionLength}
       </strong>
       <div>
-        <Button id="session-increment">Increase</Button>
-        <Button id="session-decrement">Decrease</Button>
+        <Button id="session-increment" onClick={incrementSession}>
+          Increase
+        </Button>
+        <Button id="session-decrement" onClick={decrementSession}>
+          Decrease
+        </Button>
       </div>
     </aside>
   )

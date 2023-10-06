@@ -8,7 +8,7 @@ import './App.css'
 
 const App = () => {
   const [timingType, setTimingtype] = useState('SESSION')
-  const [timeLeft, seTtimeLeft] = useState(60 * 25)
+  const [timeLeft, setTimeLeft] = useState(60 * 25)
   const [breakLength, setBreakLength] = useState(5)
   const [sessionLength, setSessionLength] = useState(25)
 
@@ -21,6 +21,20 @@ const App = () => {
   const decrementBreak = () => {
     if (breakLength > 1) {
       setBreakLength(breakLength - 1)
+    }
+  }
+
+  const incrementSession = () => {
+    if (sessionLength < 60) {
+      setSessionLength(sessionLength + 1)
+      setTimeLeft(timeLeft + 60)
+    }
+  }
+
+  const decrementSession = () => {
+    if (sessionLength > 1) {
+      setSessionLength(sessionLength - 1)
+      setTimeLeft(timeLeft - 60)
     }
   }
 
@@ -37,7 +51,11 @@ const App = () => {
         <Button id="start_stop">Stop/Start</Button>
         <Button id="reset">Reset</Button>
       </article>
-      <Session sessionLength={sessionLength} />
+      <Session
+        sessionLength={sessionLength}
+        incrementSession={incrementSession}
+        decrementSession={decrementSession}
+      />
     </main>
   )
 }
