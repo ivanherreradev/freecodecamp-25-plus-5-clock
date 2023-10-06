@@ -51,6 +51,10 @@ const App = () => {
   }
 
   const formattedTime = timeFormatter(timeLeft)
+  const audio = new Audio(
+    'https://raw.githubusercontent.com/freeCodeCamp/cdn/master/build/testable-projects-fcc/audio/BeepSound.wav'
+  )
+
   return (
     <main>
       <Break
@@ -70,6 +74,7 @@ const App = () => {
         incrementSession={incrementSession}
         decrementSession={decrementSession}
       />
+      <audio id="beep" preload="auto" src={audio.src} />
     </main>
   )
 }
