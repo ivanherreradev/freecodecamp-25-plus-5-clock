@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Timer from './components/Timer/Timer'
 import Button from './components/Button/Button'
 import Break from './components/Break/Break'
@@ -43,17 +43,47 @@ const App = () => {
     if (timeLeft && play) {
       setTimeLeft(timeLeft - 1)
     }
-  }, 1000)
+  }, 100)
 
   const handlePlay = () => {
     clearTimeout(timeout)
     setPlay(!play)
   }
 
+  const resetTimer = () => {
+    const audio = document.getElementById('beep')
+
+    if (!timeLeft && timingType === 'SESSION') {
+      setTimeLeft(breakLength * 60)
+      setTimingType('BREAK')
+      audio.play()
+    }
+
+    if (!timeLeft && timingType === 'BREAK') {
+      setTimeLeft(sessionLength * 60)
+      setTimingType('SESSION')
+      audio.pause()
+      audio.currentTime = 0
+    }
+  }
+
+  const clock = () => {
+    if (play) {
+      timeout
+      resetTimer()
+    } else {
+      clearTimeout(timeout)
+    }
+  }
+
   const formattedTime = timeFormatter(timeLeft)
   const audio = new Audio(
     'https://raw.githubusercontent.com/freeCodeCamp/cdn/master/build/testable-projects-fcc/audio/BeepSound.wav'
   )
+
+  useEffect(() => {
+    clock()
+  }, [play, timeLeft, timeout])
 
   return (
     <main>
