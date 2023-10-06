@@ -50,6 +50,18 @@ const App = () => {
     setPlay(!play)
   }
 
+  const handleReset = () => {
+    clearTimeout(timeout)
+    setPlay(false)
+    setTimeLeft(1500)
+    setBreakLength(5)
+    setSessionLength(25)
+    setTimingType('SESSION')
+    const audio = document.getElementById('beep')
+    audio.pause()
+    audio.currentTime = 0
+  }
+
   const resetTimer = () => {
     const audio = document.getElementById('beep')
 
@@ -97,7 +109,9 @@ const App = () => {
         <Button id="start_stop" onClick={handlePlay}>
           {play ? 'Stop' : 'Start'}
         </Button>
-        <Button id="reset">Reset</Button>
+        <Button id="reset" onClick={handleReset}>
+          Reset
+        </Button>
       </article>
       <Session
         sessionLength={sessionLength}
