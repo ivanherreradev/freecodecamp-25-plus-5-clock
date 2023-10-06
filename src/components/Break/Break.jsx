@@ -2,7 +2,7 @@ import React from 'react'
 import Button from '../Button/Button'
 import styles from './Break.module.css'
 
-const Break = ({ breakLength }) => {
+const Break = ({ breakLength, incrementBreak, decrementBreak }) => {
   return (
     <aside className={styles.breakLength}>
       <h3 id="break-label">Break Length</h3>
@@ -10,8 +10,12 @@ const Break = ({ breakLength }) => {
         {breakLength}
       </strong>
       <div>
-        <Button id="break-increment">Increase</Button>
-        <Button id="break-decrement">Decrease</Button>
+        <Button id="break-increment" onClick={incrementBreak}>
+          Increase
+        </Button>
+        <Button id="break-decrement" onClick={decrementBreak}>
+          Decrease
+        </Button>
       </div>
     </aside>
   )

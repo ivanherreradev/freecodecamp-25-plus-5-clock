@@ -12,16 +12,32 @@ const App = () => {
   const [breakLength, setBreakLength] = useState(5)
   const [sessionLength, setSessionLength] = useState(25)
 
+  const incrementBreak = () => {
+    if (breakLength < 60) {
+      setBreakLength(breakLength + 1)
+    }
+  }
+
+  const decrementBreak = () => {
+    if (breakLength > 1) {
+      setBreakLength(breakLength - 1)
+    }
+  }
+
   const formattedTime = timeFormatter(timeLeft)
   return (
     <main>
-      <Break breakLength={breakLength} />
+      <Break
+        breakLength={breakLength}
+        incrementBreak={incrementBreak}
+        decrementBreak={decrementBreak}
+      />
       <article>
         <Timer title={timingType} formattedTime={formattedTime} />
         <Button id="start_stop">Stop/Start</Button>
         <Button id="reset">Reset</Button>
       </article>
-      <Session sessionLength={sessionLength}/>
+      <Session sessionLength={sessionLength} />
     </main>
   )
 }
