@@ -1,0 +1,10 @@
+.breakLength {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.breakLengthStrong {
+  font-size: 3rem;
+}
