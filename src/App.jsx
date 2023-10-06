@@ -43,7 +43,7 @@ const App = () => {
     if (timeLeft && play) {
       setTimeLeft(timeLeft - 1)
     }
-  }, 100)
+  }, 1000)
 
   const handlePlay = () => {
     clearTimeout(timeout)
