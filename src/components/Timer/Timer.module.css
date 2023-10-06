@@ -1,0 +1,22 @@
+.timerContainer {
+  width: 250px;
+  height: 250px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-self: center;
+  border: 1px solid black;
+  border-radius: 8px;
+}
+
+.timer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.timer #time-left {
+  font-size: 3rem;
+}
