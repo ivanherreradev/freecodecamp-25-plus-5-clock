@@ -7,7 +7,9 @@ const Timer = ({ title, formattedTime }) => {
     <section className={styles.timerContainer}>
       <div className={styles.timer}>
         <h2 id="timer-label">{title}</h2>
-        <h3 id="time-left">{formattedTime}</h3>
+        <h3 id="time-left" className={styles.timeLeft}>
+          {formattedTime}
+        </h3>
       </div>
     </section>
   )
