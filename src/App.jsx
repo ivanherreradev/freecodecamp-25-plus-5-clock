@@ -13,6 +13,8 @@ const App = () => {
     <main>
       <article>
         <Timer title={timingType} formattedTime={formattedTime}/>
+        <Button id="start_stop">Stop/Start</Button>
+        <Button id="reset">Reset</Button>
       </article>
     </main>
   )
